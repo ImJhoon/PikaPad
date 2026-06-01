@@ -230,16 +230,17 @@ body {
 .stat-labels { display: flex; justify-content: space-between; font-weight: 700; font-size: 14px; margin-bottom: 5px; }
 .stat-bar-bg {
     height: 20px;
-    background-color: #e2e2e2;
-    border: var(--border-thin);
+    background-color: transparent;
+    border: var(--border-thick);
     width: 100%;
+    padding: 2px;
 }
 .stat-bar-fill {
     height: 100%;
-    background-color: var(--primary-red);
+    background-color: transparent;
     image-rendering: pixelated;
-    background-size: 8px 8px;
-    background-image: linear-gradient(to right, currentColor 4px, transparent 4px);
+    background-size: 8px 100%;
+    background-image: linear-gradient(to right, var(--bar-color, currentColor) 6px, transparent 6px);
     transition: width 0.3s;
 }
 
@@ -432,6 +433,28 @@ body {
 .lcd-name { font-weight: 700; font-size: 14px; text-transform: uppercase; margin-bottom: 5px;}
 .lcd-id { font-size: 12px; margin-bottom: 5px; font-weight: 700; }
 
+.lcd-stats-title {
+    font-size: 14px; font-weight: 700; text-align: center; margin-bottom: 5px; margin-top: 15px; width: 100%;
+}
+.lcd-stats-container {
+    width: 100%; padding: 0 10px 15px 10px;
+    display: flex; flex-direction: column; justify-content: center; gap: 6px; flex-grow: 1;
+}
+.lcd-stat-row {
+    display: flex; align-items: center; gap: 5px; font-size: 10px; font-weight: bold; width: 100%;
+}
+.lcd-stat-label { width: 35px; text-align: right; flex-shrink: 0; }
+.lcd-stat-bar-bg {
+    flex-grow: 1; height: 10px; border: 2px solid var(--screen-ink);
+    background-color: transparent; padding: 1px;
+}
+.lcd-stat-bar-fill {
+    height: 100%; background-color: transparent;
+    background-size: 6px 100%;
+    background-image: linear-gradient(to right, var(--screen-ink) 4px, transparent 4px);
+    transition: width 0.3s;
+}
+
 /* D-PAD & CONTROLS */
 .controls-panel {
     padding: 10px 30px 30px;
@@ -481,6 +504,7 @@ body {
     transition: transform 0.1s;
 }
 .pill-btn.green { background-color: var(--led-green); }
+.pill-btn.yellow { background-color: var(--led-yellow); color: var(--deep-black); }
 .pill-btn:active { box-shadow: none; transform: translate(2px, 2px); }
 
 /* Search Input */
