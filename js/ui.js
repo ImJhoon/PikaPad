@@ -36,7 +36,7 @@ function flattenEvolutionChain(chain) {
 
 let typeWriterTimeout = null;
 
-export function renderSinglePokemon(pokemon) {
+export function renderSinglePokemon(pokemon, viewMode = "info") {
   // 1. Update LCD Screen (Device)
   const screen = document.getElementById("lcd-screen");
   if (screen) {
@@ -54,20 +54,45 @@ export function renderSinglePokemon(pokemon) {
       if (koName) displayName = koName.name;
     }
 
-    // We can just use the english types or try to map them, let's keep it simple for now
-    const typesStr = pokemon.types
-      .map((t) => t.type.name)
-      .join(" / ")
-      .toUpperCase();
+    if (viewMode === "info") {
+      const typesStr = pokemon.types
+        .map((t) => t.type.name)
+        .join(" / ")
+        .toUpperCase();
 
-    screen.innerHTML = `
-            <img src="${spriteUrl}" alt="${pokemon.name}" class="lcd-sprite">
-            <div class="lcd-info">
-                <div class="lcd-id">NO. ${paddedId}</div>
-                <div class="lcd-name">${displayName}</div>
-                <div class="lcd-id">${typesStr}</div>
-            </div>
-        `;
+      screen.innerHTML = `
+                <img src="${spriteUrl}" alt="${pokemon.name}" class="lcd-sprite">
+                <div class="lcd-info">
+                    <div class="lcd-id">NO. ${paddedId}</div>
+                    <div class="lcd-name">${displayName}</div>
+                    <div class="lcd-id">${typesStr}</div>
+                </div>
+            `;
+    } else if (viewMode === "stats") {
+      let lcdStatsHTML = `<div class="lcd-stats-title">${displayName} 스탯</div><div class="lcd-stats-container">`;
+      pokemon.stats.forEach((stat) => {
+        let statName = stat.stat.name.toUpperCase();
+        if (statName === "SPECIAL-ATTACK") statName = "SP.A";
+        else if (statName === "SPECIAL-DEFENSE") statName = "SP.D";
+        else if (statName === "DEFENSE") statName = "DEF";
+        else if (statName === "ATTACK") statName = "ATK";
+        else if (statName === "SPEED") statName = "SPD";
+
+        const statValue = stat.base_stat;
+        const percentage = Math.min(100, (statValue / 255) * 100);
+
+        lcdStatsHTML += `
+              <div class="lcd-stat-row">
+                  <div class="lcd-stat-label">${statName}</div>
+                  <div class="lcd-stat-bar-bg">
+                      <div class="lcd-stat-bar-fill" style="width: ${percentage}%;"></div>
+                  </div>
+              </div>
+          `;
+      });
+      lcdStatsHTML += `</div>`;
+      screen.innerHTML = lcdStatsHTML;
+    }
   }
 
   // 2. Update Stats Panel (Dashboard Right Column)
@@ -90,8 +115,8 @@ export function renderSinglePokemon(pokemon) {
       statsHTML += `
                 <div class="stat-row">
                     <div class="stat-labels"><span>${statName}</span><span>${statValue}</span></div>
-                    <div class="stat-bar-bg"><div class="stat-bar-fill" style="width: ${percentage}%; background-color: ${statColor};"></div></div>
-                </div>
+                  <div class="stat-bar-bg"><div class="stat-bar-fill" style="width: ${percentage}%; --bar-color: ${statColor};"></div></div>
+              </div>
             `;
     });
     statsContainer.innerHTML = statsHTML;
@@ -145,7 +170,7 @@ export function renderSinglePokemon(pokemon) {
         spriteStyle =
           "border: 4px solid var(--primary-red); background: #ccf157; box-shadow: 4px 4px 0px var(--deep-black);";
         textStyle = "color: var(--primary-red);";
-        textValue = "현재 포켓몬";
+        textValue = "현재 단계";
       }
 
       evoHTML += `

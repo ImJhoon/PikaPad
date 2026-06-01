@@ -29,26 +29,26 @@ body {
 }
 
 .bg-decor-left { 
-    top: 150px;
+    top: 130px;
     right: calc(50% + 620px); /* 1200/2 + 20px padding */
     background-color: #ccf157; /* Bright Green-Yellow */
     transform: rotate(-5deg); /* Slight tilt for sticker feel */
 }
 .bg-decor-right { 
-    top: 100px;
+    top: 80px;
     left: calc(50% + 620px); 
     background-color: #ffb4a4; /* Bright Pink-Red */
     transform: rotate(3deg);
 }
 
 .bg-decor-left-bottom { 
-    bottom: 100px;
+    bottom: 130px;
     right: calc(50% + 600px); 
     background-color: #a4e4ff; /* Light Blue */
     transform: rotate(4deg);
 }
 .bg-decor-right-bottom { 
-    bottom: 150px;
+    bottom: 175px;
     left: calc(50% + 630px); 
     background-color: #e6b3ff; /* Light Purple */
     transform: rotate(-6deg);
@@ -207,7 +207,7 @@ body {
     z-index: 10;
 }
 
-.col-device { grid-column: 1; grid-row: 1; display: flex; justify-content: center;}
+.col-device { grid-column: 1; grid-row: 1; display: flex; justify-content: center; align-items: center; }
 .col-details { grid-column: 2; grid-row: 1; display: flex; flex-direction: column; gap: 20px; }
 .col-dialogue { grid-column: 1 / span 2; grid-row: 2; }
 
@@ -422,16 +422,16 @@ body {
 @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
 
 .lcd-sprite {
-    width: 120px; height: 120px;
+    width: 90px; height: 90px;
     image-rendering: pixelated;
     image-rendering: -moz-crisp-edges;
     image-rendering: crisp-edges;
     filter: drop-shadow(4px 4px 0px rgba(15, 56, 15, 0.4));
 }
 
-.lcd-info { text-align: center; margin-top: 5px; }
-.lcd-name { font-weight: 700; font-size: 14px; text-transform: uppercase; margin-bottom: 5px;}
-.lcd-id { font-size: 12px; margin-bottom: 5px; font-weight: 700; }
+.lcd-info { text-align: center; margin-top: 2px; }
+.lcd-name { font-weight: 700; font-size: 14px; text-transform: uppercase; margin-bottom: 2px;}
+.lcd-id { font-size: 12px; margin-bottom: 2px; font-weight: 700; }
 
 .lcd-stats-title {
     font-size: 14px; font-weight: 700; text-align: center; margin-bottom: 5px; margin-top: 15px; width: 100%;
