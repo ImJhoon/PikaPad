@@ -1,0 +1,36 @@
+@font-face {
+    font-family: 'DosStory';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-2@1.0/DOSIyagiMedium.woff2') format('woff2');
+    font-weight: normal;
+    font-display: swap;
+}
+
+:root {
+  /* Stitch MCP - Retro-Brutalist Pixel Colors */
+  --colors-bg: #f9f9f9; /* Light background from Stitch design */
+  
+  --primary-red: #E3350D;
+  --shadow-red: #A52A0A;
+  
+  --screen-green: #8BAC0F;
+  --screen-ink: #212121;
+  
+  --classic-white: #FFFFFF;
+  --deep-black: #212121;
+  
+  --lens-blue: #28AAFD;
+  
+  --led-red: #ff0000;
+  --led-yellow: #ffcc00;
+  --led-green: #33ff33;
+
+  /* Typography */
+  --font-primary: 'DosStory', monospace;
+  
+  /* Borders */
+  --border-thick: 4px solid var(--deep-black);
+  --border-thin: 2px solid var(--deep-black);
+  
+  /* Device Drop Shadow */
+  --device-shadow: 12px 12px 0px var(--deep-black);
+}
