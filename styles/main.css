@@ -198,8 +198,8 @@ body {
     display: grid;
     grid-template-columns: auto 1fr;
     grid-template-rows: 1fr auto;
-    gap: 30px;
-    padding: 30px;
+    gap: 20px;
+    padding: 15px 30px;
     max-width: 1200px;
     margin: 0 auto;
     width: 100%;
@@ -208,7 +208,7 @@ body {
 }
 
 .col-device { grid-column: 1; grid-row: 1; display: flex; justify-content: center;}
-.col-details { grid-column: 2; grid-row: 1; display: flex; flex-direction: column; gap: 30px; }
+.col-details { grid-column: 2; grid-row: 1; display: flex; flex-direction: column; gap: 20px; }
 .col-dialogue { grid-column: 1 / span 2; grid-row: 2; }
 
 /* Dashboard Cards (Stats, Evo) */
@@ -267,8 +267,8 @@ body {
 }
 .dialogue-inner {
     border: 4px solid #dadada;
-    padding: 20px;
-    min-height: 120px;
+    padding: 15px;
+    min-height: 80px;
     position: relative;
     font-size: 16px;
     line-height: 1.6;
@@ -306,7 +306,7 @@ body {
 .pokedex-device {
     background-color: var(--primary-red);
     width: 380px;
-    height: 600px;
+    height: 520px;
     border: var(--border-thick);
     border-radius: 20px 20px 10px 10px;
     box-shadow: 
@@ -320,16 +320,16 @@ body {
 
 /* TOP PANEL */
 .top-panel {
-    height: 120px;
+    height: 100px;
     border-bottom: var(--border-thick);
     display: flex;
     align-items: flex-start;
-    padding: 20px;
+    padding: 15px;
     position: relative;
 }
 
 .main-lens-border {
-    width: 70px; height: 70px;
+    width: 60px; height: 60px;
     background-color: var(--classic-white);
     border-radius: 50%;
     display: flex; justify-content: center; align-items: center;
@@ -338,7 +338,7 @@ body {
 }
 
 .main-lens {
-    width: 56px; height: 56px;
+    width: 48px; height: 48px;
     background-color: var(--lens-blue);
     border-radius: 50%;
     border: var(--border-thick);
@@ -404,7 +404,7 @@ body {
 }
 
 .lcd-screen {
-    width: 100%; height: 200px;
+    width: 100%; height: 160px;
     background-color: var(--screen-green);
     border: var(--border-thick);
     box-shadow: inset 4px 4px 0px rgba(0,0,0,0.2), inset -4px -4px 0px rgba(255,255,255,0.4);
